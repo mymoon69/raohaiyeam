@@ -1,0 +1,110 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="style-his.css">
+    <title>history</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- navbar -->
+        <nav class="navbar has-shadow">
+            <!-- brand -->
+            <div class="navbar-brand">
+                <a class="navbar-item">
+                    <h1 class="is-size-3">{{shopName}}</h1>
+                </a>
+            </div>
+
+            <div class="navbar-menu" id="nav-links">
+                <div class="navbar-start">
+                    <a class="navbar-item">{{navbarfirst}}</a>
+                    <a class="navbar-item">{{navbarsecornd}}</a>
+                    <a class="navbar-item">{{navbarthird}}</a>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-light">{{status}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="column">
+            <div class="column"></div>
+            <!-- แสดงประวัติ -->
+            <div class="column is-10 pt-2">
+                <h1 class="is-size-4 mb-2">All Products ({{products.length}})</h1>
+                <h1 class="is-size-4 mb-2">HISTORY ()</h1>
+                <div class="container is-max-desktop">
+                    <div class="is-multiline columns is-variable is-2">
+
+                        <!-- Card element start here------------------------------------------>
+                        <div id="card_product" class="column is-11" v-for="value in products">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image is-1by1">
+                                        <!-- <img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                                            alt="Placeholder image"> -->
+                                        <img v-bind:src="value.image" alt="Placeholder image">
+                                    </figure>
+                                </div>
+                                <div class="card-content" v-bind:class="[value.is_favorite == true ? 'has-background-warning-light' : '']">
+                                    <div class="media">
+                                        <div class="media-content">
+                                            <p id="title" class="title is-4">{{value.title}}</p>
+                                            <p id="brand" class="subtitle is-6">{{value.brand}}</p>
+                                            <p class="subtitle is-6 has-text-danger">{{value.price}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div style="display: flex;justify-content: space-between;">
+
+                                        <!-- คลิกที่ดาว หาก is_favorite = true ให้แสดงดาว v1 ถ้า is_favorite = false ---------->
+                                        <div class="icon is-size-4">
+
+                                            <!-- star ทึบ -->
+                                            <span class="icon" key="true" v-show="value.is_favorite == true" v-on:click="value.is_favorite = !value.is_favorite">
+                                                <i class="fas fa-star has-text-warning"></i>
+                                            </span>
+
+                                            <!-- star ใส -->
+                                            <span key="false" v-show="value.is_favorite == false" v-on:click="value.is_favorite = !value.is_favorite">
+                                                <i class="far fa-star has-text-warning"></i>
+                                            </span>
+
+                                        </div>
+
+                                        <!-- ไอคอนรูปตะกร้า -->
+                                        <!-- <div class="icon is-size-4" v-on:click="cart.push(value)" v-click> -->
+                                        <div class="icon is-size-4" v-on:click="value.is_favorite == true ? cart.push(value) : '' " v-click>
+                                            <i class="fas fa-shopping-cart has-text-warning"></i>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- script -->
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
