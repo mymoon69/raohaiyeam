@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>เราให้ยืม</title>
+</head>
+<body>
+    <div id="app">
+        <!-- navbar -->
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="./index.html">{{shopName}}</a>
+            </div>
+          
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="./condition.html">เงื่อนไขการเช่า</a>
+                    <a class="navbar-item">ติดต่อเรา</a>
+                </div>
+          
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-light">Log in</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </nav>
+
+        <div class="welcom">
+            <p>ยินดีต้อนรับ</p>
+        </div>
+        
+        <div class="container is-max-desktop">
+            <div class="columns is-variable ">
+                <!-- brand -->
+                <div class="brand" v-for="value in brands">
+                    <div class="logo">
+                        <figure>
+                            <img class="brand" :src="value.logo">
+                        </figure>
+                    </div>
+                    <div class="nameBrand" @click="model.push(value)">
+                        <p class="brand" >{{value.phone}}</p>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+        
+        <footer>
+            <p>เราให้ยืม<br>
+            <i class="fab fa-facebook-f"></i>
+        </footer>
+    </div>
+  
+</body>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="./brands.js"></script>
+    <!-- other script -->
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data:{
+                shopName: 'เราให้ยืม',
+                brands: brands,
+            }
+            
+        })
+    </script>
+
+</html>
