@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+/* font-family: 'Itim', cursive; */
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80%;
+    background-color: #f7f7f7;
+    font-family: 'Itim', cursive;
+}
+
+.wrapper{
+    position: relative;
+    width: 30%;
+    height: 50%;
+    border-radius: 20px;
+    background-color: #0B2A2C
+}
+
+/* จัดข้อมูลให้อยู่ตรงกลาง */
+.login{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+ /* ทำให้ input เต็หน้าตรงกลาง text อยู่ตรงกลาง*/
+form{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column; /*ทำให้ข้อมูลข้องในเรียงแถวลงมา*/
+    width: 80%;  /* input เต็มกรอบ*/
+}
+
+.title{
+    text-transform: uppercase;
+    font-size: 30px;
+    padding-bottom: 2%;
+    color: #f7f7f7;
+}
+
+.text{
+    font-size: 20px;
+    color: #f7f7f7;
+}
+
+/* input box */
+.field{
+    width: 90%;
+    padding-top: 2%;
+}
+
+.button{
+    text-transform: uppercase;
+    width: 150px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.text-re{
+    padding-top: 30px;
+    font-size: 15px;
+    color: #f7f7f7;
+}
+
+input, button{
+    font-family: 'Itim', cursive;
+} 
