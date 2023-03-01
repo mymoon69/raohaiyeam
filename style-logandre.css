@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+/* font-family: 'Itim', cursive; */
+
+body{
+    display: flex;
+    align-items: center;/* y กลาง */
+    justify-content: center;/* x กลาง */
+    background-color: #f7f7f7;
+    font-family: 'Itim', cursive;
+}
+
+.wrapper-log{
+    position: relative;
+    width: 30%;
+    height: 50%;
+    border-radius: 20px;
+    background-color: #2c3639
+}
+
+.wrapper-re{
+    position: relative;
+    width: 30%;
+    height: 80%;
+    border-radius: 20px;
+    background-color: #2c3639;
+}
+
+.register{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+/* จัดข้อมูลให้อยู่ตรงกลาง */
+.login{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* ทำให้ input เต็หน้าตรงกลาง text อยู่ตรงกลาง */
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /*ทำให้ข้อมูลข้องในเรียงแถวลงมา*/
+    width: 90%; /* width input */
+}
+
+.title{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 30px;
+    margin-top: 10px;
+    color: #DCD7C9;
+}
+
+.text{
+    font-size: 15px;
+    color: #DCD7C9;
+    padding-left: 15px;
+}
+
+/* input box */
+.field{
+    width: 90%;
+    padding-top: 5px;
+}
+
+.button{
+    text-transform: uppercase;
+    width: 150px;
+    margin-top: 10px;
+    border: none;
+    /* margin-left: 20px; */
+}
+
+.text-re{
+    padding-top: 30px;
+    font-size: 15px;
+    color: #DCD7C9;
+}
+
+input, button{
+    font-family: 'Itim', cursive;
+} 
