@@ -1,22 +1,16 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+/* font-family: 'Itim', cursive; */
+body{
+    font-family: 'Itim', cursive;
 }
-/* body{
-    background-color: #f2e7d5;
-} */
-
-nav {
-    width: 100%;
+.navbar{
     background-color: #393e46;
-    padding: 25px;
-    color: #f2e7d5;
 }
-nav a {
-    color: #f2e7d5;
 
+.navbar-item{
+    font-size: 20px;
+    padding-left: 20px;
+    color: #f7f7f7;
 }
 .welcom {
     width: 100%;
@@ -27,24 +21,24 @@ nav a {
     text-align: center;
     font-size: xx-large;
 }
-
-/* .brand {
-    margin: 2%;
-    width: 300px;
-    height: 250px;
+.brand{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 70%;
     border: 1px solid;
-    padding: 15px;
-    text-align: center;
-} */
-.brand img {
-    padding-top: 20%;
-    padding-left: 20%;
-}
-.nameBrand{
     margin-top: 10%;
-    text-align: center;
-    font-size: larger;
+    margin-left: 8%;
 }
+
+.imgPhone{
+    width: 100px;
+    height: 100px;
+    
+}
+
 .condition{
     display: flex;
     flex-direction: column;
@@ -56,23 +50,16 @@ nav a {
     margin-left: 8%;
     margin-top: 10%;
     text-align: center;
-    /* padding-top: 15%; */
-    /* padding-left: 15%; */
-    /* background-color: #6d9886; */
 }
-/* .imgCondition{
-    text-align: center;
-    width: 10%;
-} */
 
 .imgcon{
     width: 60px;
 }
-footer {
+/* footer {
     margin-top: 10%;
     width: 100%;
     background-color: #393e46;
     color: #f2e7d5;
     padding: 25px;
     text-align: center;
-}
+} */
