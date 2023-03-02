@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>เราให้ยืม</title>
+</head>
+
+<body>
+    
+    <div id="app">
+        <!-- navbar -->
+        <nav class="navbar has-shadow" style="background-color: #393e46;">
+            <!-- band -->
+            <div class="navbar-band">
+                <a href="./index.html" style="color: #f7f7f7;">
+                    <h1 class="is-size-3 ml-3 mt-1" @click="removedeteil()" href="./index.html">{{shopName}}</h1>
+                </a>
+            </div>
+            <!-- menu -->
+            <div class="navbar-menu">
+                <!-- เริ่มฝั่งซ้าย -->
+                <div class="navbar-start ml-3 pr-2">
+                    <a class="navbar-item pl-3" @click="removedeteil()" href="./condition.html">{{navbarfirst}}</a>
+                    <a class="navbar-item pl-3" @click="removedeteil()" href="./history.html">{{navbarsecornd}}</a>
+                </div>
+                <!-- เริ่มฝั่งขวา -->
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-light" @click="removedeteil()">{{status}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="head">
+            <p>ยินดีต้อนรับ</p>
+        </div>
+        
+        <div class="container is-max-desktop">
+            <div class="columns is-multiline">
+                <!-- brand -->
+                <div class="brand mt-6 ml-5 mr-4" v-for="value in phones">
+                    <div class="imgPhone">
+                        <img :src="value.img">
+                    </div>
+                    <div class="namePhone">
+                        <a class="button is-white mt-2 mb-4" @click="showdeteil(value)">{{value.model}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+  
+</body>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="./phones.js"></script>
+    <script src="./main.js"></script>
+    <!-- other script -->
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+
+
+</html>
