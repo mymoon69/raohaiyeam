@@ -27,5 +27,4 @@ var app = new Vue({
         this.model = JSON.parse(localStorage.deteil);
 
     }
-
 })
