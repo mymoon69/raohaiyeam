@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>เราให้ยืม</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- navbar -->
+        <nav class="navbar has-shadow" style="background-color: #393e46;">
+            <!-- band -->
+            <div class="navbar-band">
+                <a href="./index.html" style="color: #f7f7f7;">
+                    <h1 class="is-size-3 ml-3 mt-1" @click="removedeteil()" href="./index.html">{{shopName}}</h1>
+                </a>
+            </div>
+            <!-- menu -->
+            <div class="navbar-menu">
+                <!-- เริ่มฝั่งซ้าย -->
+                <div class="navbar-start ml-3 pr-2">
+                    <a class="navbar-item pl-3" @click="removedeteil()" href="./condition.html">{{navbarfirst}}</a>
+                    <a class="navbar-item pl-3" @click="removedeteil()" href="./history.html">{{navbarsecornd}}</a>
+                </div>
+                <!-- เริ่มฝั่งขวา -->
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-light" @click="removedeteil()" href="./login.html">{{status}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="head">
+            <p>เงื่อนไขการเช่า</p>
+        </div>
+
+        <div class="wrapper">
+            <div class="columns is-variable ">
+                <div class="conditionContent" v-for="value in conditions">
+                    <figure>
+                        <img class="imgcon" :src="value.icon" style="width: 60px;">
+                    </figure>
+                    <div class="textCondition">
+                        <p>{{value.content}}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+    el: '#app',
+    data: {
+        shopName: 'เราให้ยืม',
+        navbarfirst: 'เงื่อนไขการเช่า',
+        navbarsecornd: 'ประวัติการจอง',
+        status: 'Login',
+        conditions: [
+            {
+                icon: "img/list.png",
+                content: "เลือกรายการและทำรายการจองผ่านหน้าเว็บ"
+            },
+            {
+                icon: "img/customer-service-headset.png",
+                content: "รอทางร้านติดต่อกลับเพื่อแจ้งยอดวางประกันและยืนยัน"
+            },
+            {
+                icon: "img/dslr-camera.png",
+                content: "รับของตามวันเวลาที่กำหนดพร้อมชำระค่าเช่า และ เงินวางประกัน"
+            },
+            {
+                icon: "img/repeat.png",
+                content: "คืนของตามวันเวลาที่กำหนด ร้านทำรายการคืนเงินประกันให้ในวันที่คืน"
+            },
+        ]
+    }
+})
+</script>
+<!-- other script -->
+<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+
+</html>
