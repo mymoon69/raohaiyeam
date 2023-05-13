@@ -70,7 +70,7 @@
           </div>
 
           <div v-if="!user" class="navbar-item">
-            <router-link to="/user/login" class="button is-primary">
+            <router-link to="/login" class="button is-primary">
               <strong>Login</strong>
             </router-link>
           </div>
