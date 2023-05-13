@@ -38,7 +38,7 @@
             </router-link>
           </div>
           <div v-if="admin" class="navbar-item" >
-            <router-link to="" class="button is-primary">
+            <router-link to="" class="button is-primary is-outlined">
               <p>ยืนยันออร์เดอร์</p>
             </router-link>
           </div>
@@ -47,7 +47,7 @@
         <div class="navbar-menu">
         <div class="navbar-end">
           <div v-if="user" class="navbar-item">
-            <router-link to="/blogs/create" class="button is-primary">
+            <router-link to="/blogs/create" class="button is-primary is-outlined">
               <strong>New Blog</strong>
             </router-link>
           </div>
@@ -70,7 +70,7 @@
           </div>
 
           <div v-if="!user" class="navbar-item">
-            <router-link to="/login" class="button is-primary">
+            <router-link to="/login" class="button is-primary is-outlined">
               <strong>Login</strong>
             </router-link>
           </div>
