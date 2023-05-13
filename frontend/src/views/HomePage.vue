@@ -65,6 +65,9 @@ export default {
   width: 100%;
   padding-top: 5%;
 }
+.card:hover{
+  border: 1px solid #A9907E;
+}
 .image {
   max-width: 100%;
   margin: 10%;
