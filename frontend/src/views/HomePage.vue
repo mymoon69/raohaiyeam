@@ -1,74 +1,54 @@
 <template>
-<div>
-  <div class="head">
-    <p>ยินดีต้อนรับ</p>
-    <!-- search -->
-    <div class="field has-addons-centered">
-      <div class="control is-half">
-        <input class="input" type="text" placeholder="Find a repository" />
+  <div>
+    <div class="head">
+      <p>ยินดีต้อนรับ</p>
+    </div>
+    <div class="container">
+      <!-- search -->
+      <div class="columns">
+        <div class="column is-half">
+          <input
+            class="input"
+            type="text"
+            v-model="search"
+            placeholder="Search blog(s)"
+          />
+        </div>
+        <div class="column is-half">
+          <button @click="getBlogs" class="button">Search</button>
+        </div>
       </div>
-      <div class="control is-centered">
-        <a class="button is-info"> Search </a>
+      <div class="columns is-multiline">
+        <!-- brand -->
+        <!-- Card element start here------------------------------------------>
+        <div id="card_product" class="column is-one-quarter">
+          <div class="card" style="width:300px">
+            <div class="card-image" style="padding-top: 5%">
+              <figure class="image is-1by1">
+                <img
+                  src="./img/IPhone 13 Pro Max.png"
+                  alt="Placeholder image"
+                />
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-4">iphone11</p>
+                  <p class="subtitle is-6">apple</p>
+                  <p class="subtitle is-6 has-text-danger">1500 ฿</p>
+                </div>
+                <!-- <div class="namePhone">
+                  <button class="button is-warning">iphone 11</button>
+                </div> -->
+              </div>
+              <button class="button is-warning is-fullwidth">จองเลย</button>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
-  </div>
-  <div class="container">
-    
-    <div class="columns is-multiline">
-      <!-- brand -->
-      <!-- v-for="value in phones" :key="value.id" -->
-      <div class="brand mt-6 ml-5 mr-4">
-        <div class="imgPhone">
-          <img
-            src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-iphone11-purple-2019?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1611169055000"
-          />
-        </div>
-        <div class="namePhone">
-          <button class="button is-warning">iphone 11</button>
-        </div>
-      </div>
-      <div class="brand mt-6 ml-5 mr-4">
-        <div class="imgPhone">
-          <img
-            src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-iphone11-purple-2019?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1611169055000"
-          />
-        </div>
-        <div class="namePhone">
-          <button class="button is-warning">iphone 11</button>
-        </div>
-      </div>
-      <div class="brand mt-6 ml-5 mr-4">
-        <div class="imgPhone">
-          <img
-            src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-iphone11-purple-2019?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1611169055000"
-          />
-        </div>
-        <div class="namePhone">
-          <button class="button is-warning">iphone 11</button>
-        </div>
-      </div>
-      <div class="brand mt-6 ml-5 mr-4">
-        <div class="imgPhone">
-          <img
-            src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-iphone11-purple-2019?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1611169055000"
-          />
-        </div>
-        <div class="namePhone">
-          <button class="button is-warning">iphone 11</button>
-        </div>
-      </div>
-      <div class="brand mt-6 ml-5 mr-4">
-        <div class="imgPhone">
-          <img
-            src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-iphone11-purple-2019?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1611169055000"
-          />
-        </div>
-        <div class="namePhone">
-          <button class="button is-warning">iphone 11</button>
-        </div>
-      </div>
-    </div>
-  </div>
   </div>
 </template>
 
@@ -84,6 +64,11 @@ export default {
 .container {
   background-color: blueviolet;
   width: 100%;
+  padding-top: 5%;
+}
+.image {
+  max-width: 100%;
+  margin: 10%;
 }
 
 .imgPhone {
