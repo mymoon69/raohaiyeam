@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Home</h1>
+  <div class="hero">
+    <h1></h1>
   </div>
 </template>
 
@@ -13,4 +13,9 @@ export default {
 </script>
 
 <style scoped>
+.hero{
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+}
 </style>
