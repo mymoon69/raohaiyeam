@@ -20,30 +20,62 @@
         </a>
       </div>
 
-      <div id="navbarBasicExample" class="navbar-menu">
-
-        <div class="navbar-end">
+      <div class="navbar-menu">
+        <div class="navbar-start">
           <div class="navbar-item">
-            <div class="buttons">
-              <router-link to="/blogs/create" class="button is-primary">
-                <strong>New Blog</strong>
-              </router-link>
-            </div>
+            <router-link to="">
+              <p class="textnav">เงื่อนไขการเช่า</p>
+            </router-link>
           </div>
-
-          <div class="navbar-item has-dropdown is-hoverable">
+          <div v-if="user" class="navbar-item">
+            <router-link to="">
+              <p class="textnav">ประวัติการจอง</p>
+            </router-link>
+          </div>
+          <div class="navbar-item">
+            <router-link to="">
+              <p class="textnav">ติอต่อเรา</p>
+            </router-link>
+          </div>
+          <div v-if="admin" class="navbar-item" >
+            <router-link to="" class="button is-primary">
+              <p>ยืนยันออร์เดอร์</p>
+            </router-link>
+          </div>
+          
+        </div>
+        <div class="navbar-menu">
+        <div class="navbar-end">
+          <div v-if="user" class="navbar-item">
+            <router-link to="/blogs/create" class="button is-primary">
+              <strong>New Blog</strong>
+            </router-link>
+          </div>
+          <div v-if="user" class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
               <figure class="image is-24x24 my-auto">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                <img
+                  class="is-rounded"
+                  src="https://bulma.io/images/placeholders/128x128.png"
+                />
               </figure>
-              <span class="pl-3">Username</span>
+              <span class="pl-3"
+                >{{ user.first_name }} {{ user.last_name }}</span
+              >
             </a>
             <div class="navbar-dropdown">
               <a class="navbar-item">Profile</a>
-              <a class="navbar-item">Log out</a>
+              <a class="navbar-item" @click="logout">Log out</a>
             </div>
           </div>
+
+          <div v-if="!user" class="navbar-item">
+            <router-link to="/user/login" class="button is-primary">
+              <strong>Login</strong>
+            </router-link>
+          </div>
         </div>
+      </div>
       </div>
     </nav>
 
@@ -53,16 +85,22 @@
 </template>
 
 <script>
-
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
-body{
-  font-family: 'Itim', cursive;
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+body {
+  font-family: "Itim", cursive;
   /* background-color:#000 ; */
 }
-#app{
+#app {
   width: 100%;
+  font-family: "Itim", cursive;
+}
+.textnav{
+  color: black;
+}
+.textnav:hover {
+  color: #1B9C85;
 }
 </style>
