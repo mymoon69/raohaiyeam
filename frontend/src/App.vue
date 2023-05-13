@@ -4,7 +4,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <router-link to="/" class="navbar-item is-size-4">
-          เราให้ยืม
+         <h3 class="textnav">เราให้ยืม</h3>
         </router-link>
 
         <a
@@ -89,6 +89,7 @@
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+
 body {
   font-family: "Itim", cursive;
   /* background-color:#000 ; */
@@ -103,4 +104,5 @@ body {
 .textnav:hover {
   color: #1B9C85;
 }
+
 </style>
