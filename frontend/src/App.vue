@@ -27,7 +27,8 @@
               <p class="textnav">เงื่อนไขการเช่า</p>
             </router-link>
           </div>
-          <div v-if="user" class="navbar-item">
+          <!-- v-if="user" -->
+          <div class="navbar-item">
             <router-link to="">
               <p class="textnav">ประวัติการจอง</p>
             </router-link>
@@ -37,7 +38,8 @@
               <p class="textnav">ติอต่อเรา</p>
             </router-link>
           </div>
-          <div v-if="admin" class="navbar-item" >
+          <!-- v-if="admin"  -->
+          <div class="navbar-item" >
             <router-link to="" class="button is-primary is-outlined">
               <p>ยืนยันออร์เดอร์</p>
             </router-link>
@@ -46,12 +48,13 @@
         </div>
         <div class="navbar-menu">
         <div class="navbar-end">
-          <div v-if="user" class="navbar-item">
+          
+          <div class="navbar-item">
             <router-link to="/blogs/create" class="button is-primary is-outlined">
               <strong>New Blog</strong>
             </router-link>
           </div>
-          <div v-if="user" class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
               <figure class="image is-24x24 my-auto">
                 <img
@@ -59,17 +62,17 @@
                   src="https://bulma.io/images/placeholders/128x128.png"
                 />
               </figure>
-              <span class="pl-3"
+              <!-- <span class="pl-3"
                 >{{ user.first_name }} {{ user.last_name }}</span
-              >
+              > -->
             </a>
             <div class="navbar-dropdown">
               <a class="navbar-item">Profile</a>
-              <a class="navbar-item" @click="logout">Log out</a>
+              <!-- <a class="navbar-item" @click="logout">Log out</a> -->
             </div>
           </div>
 
-          <div v-if="!user" class="navbar-item">
+          <div class="navbar-item">
             <router-link to="/login" class="button is-primary is-outlined">
               <strong>Login</strong>
             </router-link>

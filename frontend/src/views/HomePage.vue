@@ -15,18 +15,18 @@
           />
         </div>
         <div class="column is-1">
-          <button @click="getBlogs" class="button is-warning">Search</button>
+          <!-- <button @click="getPhones" class="button is-warning">Search</button> -->
         </div>
       </div>
       <div class="columns is-multiline">
         <!-- brand -->
         <!-- Card element start here------------------------------------------>
-        <div id="card_product" class="column is-one-quarter">
+        <div id="card_product" class="column is-one-quarter" v-for="phone in phones" :key="phone.phone_id">
           <div class="card" style="width: 300px">
             <div class="card-image" style="padding-top: 5%">
               <figure class="image is-1by1">
                 <img
-                  src="./img/IPhone 13 Pro Max.png"
+                  :src="image(phone.img)"
                   alt="Placeholder image"
                 />
               </figure>
@@ -34,8 +34,8 @@
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <p class="title is-4">iphone11</p>
-                  <p class="subtitle is-6">apple</p>
+                  <p class="title is-4">{{phone.model}}</p>
+                  <p class="subtitle is-6">{{phone.brand}}</p>
                   <p class="subtitle is-6 has-text-danger">1500 ฿</p>
                 </div>
                 <!-- <div class="namePhone">
@@ -52,10 +52,42 @@
 </template>
 
 <script>
+import axios from "@/plugins/axios";
+
 export default {
+  props: ["user"],
   data() {
-    return {};
+    return {
+      search: "",
+      phones: [],
+    };
   },
+  mounted(){
+    this.getPhone();
+  },
+  methods:{
+    getPhone(){
+      axios//เรียกหลังบ้าน
+        .get("/", {
+          params: {
+            search: this.search,
+          },
+        })
+        .then((response) => {
+          this.phones = response.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    image(file_path){
+      if (file_path) {
+        return "http://localhost:3001" + file_path;
+      } else {
+        return "https://bulma.io/images/placeholders/640x360.png";
+      }
+    }
+  }
 };
 </script>
 

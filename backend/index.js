@@ -11,13 +11,13 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 
 // routers
 const indexRouter = require('./routes/index')
-// const blogRouter = require('./routes/blog')
+const phoneRouter = require('./routes/phone')
 // const commentRouter = require('./routes/comment')
 // const imageRouter = require('./routes/image')
 // const userRouter = require('./routes/user')
 
 app.use(indexRouter.router)
-// app.use(blogRouter.router)
+app.use(phoneRouter.router)
 // app.use(commentRouter.router)
 // app.use(imageRouter.router)
 // app.use(userRouter.router)
