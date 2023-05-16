@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -5,94 +6,127 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <!-- <link rel="stylesheet" href="style-register.css"> -->
-    <link rel="stylesheet" href="css/style-logandre.css">
     <title>เราให้ยืม</title>
 </head>
 
+<style>
+    .text{
+        text-align: center;
+        font-size: 40px;
+    }
+</style>
+
 <body>
-    <div class="wrapper-re">
-        <div class="register">
-            <form action="">
-                <h3 class="title">Register</h3>
-                <p class="text"> Username</p>
-                <div class="field">
-                    <p class="control has-icons-left">
-                        <input class="input is-rounded" type="text" placeholder="Username">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-solid fa-user"></i>
-                        </span>
-                    </p>
+    <div id="app">
+        <div class="hero is-fullheight">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-half">
+                            <!-- Register -->
+                            <div class="box">
+                                <h1 class="text my-2">Register</h1>
+                                <!-- user -->
+                                <div class="field">
+                                    <label class="label">Username</label>
+                                    <div class="control has-icons-left">
+                                        <input type="text" class="input">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- password -->
+                                <div class="field">
+                                    <label class="label">Password</label>
+                                    <div class="control has-icons-left">
+                                        <input type="password" class="input">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Confirm password -->
+                                <div class="field">
+                                    <label class="label">Confrim Password</label>
+                                    <div class="control has-icons-left">
+                                        <input type="password" class="input">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- firstname -->
+                                <div class="field">
+                                    <label class="label">Firstname</label>
+                                    <div class="control has-icons-left">
+                                        <input type="text" class="input">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- lastname -->
+                                <div class="field">
+                                    <label class="label">Lastname</label>
+                                    <div class="control has-icons-left">
+                                        <input type="text" class="input">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- ID Card -->
+                                <div class="field">
+                                    <label class="label">ID Card</label>
+                                    <div class="control has-icons-left">
+                                        <input type="text" class="input">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-address-card"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- email -->
+                                <div class="field">
+                                    <label class="label">Email</label>
+                                    <div class="control has-icons-left">
+                                        <input type="text" class="input">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-envelope"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- phone -->
+                                <div class="field">
+                                    <label class="label">Phone Number</label>
+                                    <div class="control has-icons-left">
+                                        <input type="text" class="input">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-phone"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <button class="button is-primary is-fullwidth my-4">Register</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p class="text"> Password</p>
-                <div class="field">
-                    <p class="control has-icons-left">
-                        <input class="input is-rounded" type="password" placeholder="Password">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </p>
-                </div>
-                <p class="text"> Firstname</p>
-                <div class="field">
-                    <p class="control has-icons-left">
-                        <input class="input is-rounded" type="text" placeholder="Firstname">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-solid fa-user"></i>
-                        </span>
-                    </p>
-                </div>
-                <p class="text"> Lastname</p>
-                <div class="field">
-                    <p class="control has-icons-left">
-                        <input class="input is-rounded" type="text" placeholder="Lastname">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-solid fa-user"></i>
-                        </span>
-                    </p>
-                </div>
-                <p class="text"> ID Card</p>
-                <div class="field">
-                    <p class="control has-icons-left">
-                        <input class="input is-rounded" type="text" placeholder="ID Card">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-solid fa-address-card"></i>
-                        </span>
-                    </p>
-                </div>
-                <p class="text"> E-mail</p>
-                <div class="field">
-                    <p class="control has-icons-left">
-                        <input class="input is-rounded" type="email" placeholder="E-mail">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-solid fa-envelope"></i>
-                        </span>
-                    </p>
-                </div>
-                <p class="text"> Phone number</p>
-                <div class="field">
-                    <p class="control has-icons-left">
-                        <input class="input is-rounded" type="text" placeholder="Phone number">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-solid fa-phone"></i>
-                        </span>
-                    </p>
-                </div>
-                <div class="btn">
-                    <a href="./index.html">
-                        <input type="button" class="button is-rounded" style="background-color: #FFE9A0;" value="Back to home">
-                        <!-- <button class="button is-rounded" style="background-color: #FFE9A0;">Back to home</button> -->
-                    </a>
-                    <button class="button is-rounded has-text-white"
-                        style="background-color: #A27B5C;">Register</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
-
-    <!-- other script -->
-    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
-
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!-- other script -->
+<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+
 
 </html>
