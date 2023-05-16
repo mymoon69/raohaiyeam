@@ -14,6 +14,11 @@ const routes = [
     name: 'login',
     component: () => import('../views/LoginPage.vue') // set home as path '/'
   },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import('../views/RegisterPage.vue') // set home as path '/'
+  },
 ]
 
 const router = new VueRouter({

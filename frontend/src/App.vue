@@ -1,23 +1,11 @@
 <template>
   <div id="app">
     <!-- nav bar -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar " role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <router-link to="/" class="navbar-item is-size-4">
          <h3 class="textnav">เราให้ยืม</h3>
         </router-link>
-
-        <a
-          role="button"
-          class="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
       </div>
 
       <div class="navbar-menu">
@@ -65,10 +53,12 @@
               <!-- <span class="pl-3"
                 >{{ user.first_name }} {{ user.last_name }}</span
               > -->
+              <span class="pl-3">Sasikan Longkrachang</span>
             </a>
             <div class="navbar-dropdown">
               <a class="navbar-item">Profile</a>
-              <!-- <a class="navbar-item" @click="logout">Log out</a> -->
+              <!--  <a class="navbar-item" @click="logout">Log out</a>-->
+              <a class="navbar-item">Log out</a>
             </div>
           </div>
 
@@ -84,13 +74,17 @@
 
     <router-view :key="$route.fullPath" />
   </div>
-  <!-- <App> -->
 </template>
 
 <script>
+export default {
+  data() {
+    return {};
+  },
+};
 </script>
 
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
 
 body {
@@ -107,5 +101,6 @@ body {
 .textnav:hover {
   color: #1B9C85;
 }
+
 
 </style>
