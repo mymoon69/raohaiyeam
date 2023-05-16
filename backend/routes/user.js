@@ -1,16 +1,11 @@
 const express = require("express")
 const pool = require("../config")
 const Joi = require('joi')
-const bcrypt = require('bcrypt');
-const { generateToken } = require("../utils/token");
+const bcrypt = require('bcrypt'); // สร้าง pasword ใหม่ กันโดนขโมย
+const { generateToken } = require("../utils/token"); // เก็บไว้ใน localstorage จำรหัสคน login ไว้
+const { isLogIn } = require('../middlewares') // เอาไว้เช็คว่า login รึยัง
 
 router = express.Router();
-
-router.get('/user', async (req, res, next) => {
-    const [data] = await pool.query('select * from user')
-    //returnให้จบfunc send รอบเดียว
-    return res.send(data)
-})
 
 // สำหรับ login
 const loginSchema = Joi.object({
@@ -40,12 +35,12 @@ router.post('/user/login', async (req, res, next) => {
         const user = users[0]
         // เช็คว่ามี username ไหม
         if (!user) {
-            throw new Error('Incorrect username or password')
+            throw new Error('Incorrect username or password.')
         }
 
         //เช็คว่า password ถูกไหม
         if (!(await bcrypt.compare(password, user.password))) {
-            throw new Error('Incorrect username or password')
+            throw new Error('Incorrect username or password.')
         }
 
         // check เคยเข้าสู่ระบบไหม
@@ -67,7 +62,84 @@ router.post('/user/login', async (req, res, next) => {
     } finally {
         conn.release()
     }
+})
+
+// สำหรับ Register
+// check ว่ามี username นี้อยู่แล้วรึเปล่า
+const CheckUsername = async (value) => {
+    const [user] = await pool.query('select username from login where username = ?', [value])
+    if (user.length > 0) {
+        throw new Joi.ValidationError('This username is already taken.')
+    }
+    return value
+}
+
+// check  ว่า password ตรงกับที่กำหนดไหม
+const CheckPassword = async (value) => {
+    // check ความยาวว่าเกิน 5 ไหม
+    if (value.length < 5) {
+        throw new Joi.ValidationError('Password must be not less than 8 characters.')
+    }
+    // check ความยาวว่ามีตัวอักษรพิมพ์ใหญ่พิมพ์เล็กและตัวเลข
+    if (!(value.match(/[a-z]/) && value.match(/[A-Z]/) && value.match(/[0-9]/))) {
+        throw new Joi.ValidationError('Password must be harder.')
+    }
+    return value
+}
+
+// ใช้ Joi check
+const RegisterSchema = Joi.object({
+    username: Joi.string().required().max(20).min(5).external(CheckUsername),
+    password: Joi.string().required().custom(CheckPassword),
+    confirm_password: Joi.string().required().valid(Joi.ref('password')),
+    email: Joi.string().required().email(),
+    first_name: Joi.string().required().max(100),
+    last_name: Joi.string().required().max(100),
+    ID_card: Joi.string().required().pattern(/[0-9]{13}/),
+    phone: Joi.string().required().pattern(/0[0-9]{9}/)
 
 })
+
+router.post('/user/register', async (req, res, next) => {
+    // check สิ่งที่เอาเข้ามาด้วย Joi
+    try {
+        await RegisterSchema.validateAsync(req.body, {abortEarly: false})
+    } catch (err) {
+        return res.status(400).send(err)
+    }
+
+    const conn = await pool.getConnection()
+    await conn.beginTransaction()
+
+    const username = req.body.username
+    const password = await bcrypt.hash(req.body.password, 5)
+    const first_name = req.body.first_name
+    const last_name = req.body.last_name
+    const ID_card = req.body.ID_card
+    const email = req.body.email
+    const phone = req.body.phone
+
+    // insert ข้อมูล 
+    try {
+        // insert ข้อมูลลงตาราง user
+        await conn.query('insert into user(first_name, last_name, ID_card, phone, email) values (?, ?, ?, ?, ?)', 
+        [first_name, last_name, ID_card, phone, email])
+
+        const [user] = await conn.query('select user_id from user where ID_card = ?', [ID_card])
+        const id_user = user[0].ID_card
+
+        // insert ข้อมูลลงใน login 
+        await conn.query('insert into login(user_id, username, password) values(?, ?, ?)', [id_user, username, password])
+
+        conn.commit()
+        res.status(200).send()
+    } catch (err) {
+        conn.rollback()
+        res.status(400).json(err.toString());
+    } finally {
+        conn.release()
+    }
+})
+
 
 exports.router = router
