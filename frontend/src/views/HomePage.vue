@@ -15,7 +15,7 @@
           />
         </div>
         <div class="column is-1">
-          <!-- <button @click="getPhones" class="button is-warning">Search</button> -->
+          <button class="button is-warning">Search</button>
         </div>
       </div>
       <div class="columns is-multiline">
@@ -25,10 +25,10 @@
           <div class="card" style="width: 300px">
             <div class="card-image" style="padding-top: 5%">
               <figure class="image is-1by1">
-                <img
+                <!-- <img
                   :src="imagePath(phone.file_path)"
                   alt="Placeholder image"
-                />
+                /> -->
               </figure>
             </div>
             <div class="card-content">
@@ -68,7 +68,7 @@ export default {
   methods:{
     getPhone(){
       axios//เรียกหลังบ้าน
-        .get("/", {
+        .get("/phone", {
           params: {
             search: this.search,
           },
