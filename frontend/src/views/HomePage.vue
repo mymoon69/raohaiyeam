@@ -26,7 +26,7 @@
             <div class="card-image" style="padding-top: 5%">
               <figure class="image is-1by1">
                 <img
-                  :src="image(phone.img)"
+                  :src="imagePath(phone.file_path)"
                   alt="Placeholder image"
                 />
               </figure>
