@@ -33,6 +33,7 @@ CREATE TABLE `phone` (
   `model` varchar(255) NOT NULL,
   `rent` varchar(255) NOT NULL,
   `deposit` int (255) NOT NULL,
+  `amount` int(10) NOT NULL,
   PRIMARY KEY (`phone_id`)
 );
 
@@ -78,19 +79,19 @@ INSERT INTO `login`(`login_id`, `user_id`, `username`, `password`, `role`) VALUE
 (2,2,'bagelscience','password456','admin'),
 (3,3,'ferretnetherrack','password789','user');
 
-INSERT INTO `phone`(`phone_id`, `brand`, `model`, `rent`, `deposit`) VALUES
-(1,'Samsung','Samsung Galaxy S20 Ultra',2500,1000),
-(2,'Samsung','Samsung Galaxy S21 Ultra',2500,1000),
-(3,'Samsung','Samsung Galaxy S22 Ultra',2500,1000),
-(4,'Samsung','Samsung Galaxy S23 Ultra',2500,1000),
-(5,'HUAWEI','HUAWEI P40 Pro+',1500,500),
-(6,'HUAWEI','HUAWEI P50 Pro',1500,500),
-(7,'HUAWEI','HUAWEI Mate40 Pro',1500,500),
-(8,'HUAWEI','HUAWEI Mate50 Pro',1500,500),
-(9,'IPhone','IPhone 13 Pro.png',1500,500),
-(10,'IPhone','IPhone 13 Pro Max.png',1500,500),
-(11,'IPhone','IPhone 14 Pro.png',1500,500),
-(12,'IPhone','IPhone 14 Pro Max.png',1500,500);
+INSERT INTO `phone`(`phone_id`, `brand`, `model`, `rent`, `deposit`, `amount`) VALUES
+(1,'Samsung','Samsung Galaxy S20 Ultra',2500,1000,'20'),
+(2,'Samsung','Samsung Galaxy S21 Ultra',2500,1000, '20'),
+(3,'Samsung','Samsung Galaxy S22 Ultra',2500,1000, '20'),
+(4,'Samsung','Samsung Galaxy S23 Ultra',2500,1000, '20'),
+(5,'HUAWEI','HUAWEI P40 Pro+',1500,500, '10'),
+(6,'HUAWEI','HUAWEI P50 Pro',1500,500, '10'),
+(7,'HUAWEI','HUAWEI Mate40 Pro',1500,500, '10'),
+(8,'HUAWEI','HUAWEI Mate50 Pro',1500,500, '10'),
+(9,'IPhone','IPhone 13 Pro.png',1500,500, '10'),
+(10,'IPhone','IPhone 13 Pro Max.png',1500,500, '10'),
+(11,'IPhone','IPhone 14 Pro.png',1500,500, '10'),
+(12,'IPhone','IPhone 14 Pro Max.png',1500,500, '10');
 
 INSERT INTO `images` (`images_id`, `phone_id`, `file_path`) VALUES
 (1, 1, 'static/img/Samsung Galaxy S20 Ultra.png'),
