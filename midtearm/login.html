@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -5,51 +6,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <!-- <link rel="stylesheet" href="style-login.css"> -->
-    <link rel="stylesheet" href="css/style-logandre.css">
     <title>เราให้ยืม</title>
 </head>
 
+<style>
+    .text{
+        text-align: center;
+    }
+</style>
+
 <body>
-    <div class="wrapper-log">
-        <div class="login">
-            <form action="">
-                <h3 class="title">Login</h3>
-                <p class="text"> Username</p>
-                <div class="field">
-                    <p class="control has-icons-left">
-                        <input class="input is-rounded" type="text" placeholder="Username">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-solid fa-user"></i>
-                        </span>
-                    </p>
+    <div id="app">
+        <div class="hero is-fullheight">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-half">
+                            <!-- login -->
+                            <div class="box">
+                                <!-- user -->
+                                <div class="field">
+                                    <label class="label">Username</label>
+                                    <div class="control has-icons-left">
+                                        <input type="text" class="input">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- password -->
+                                <div class="field">
+                                    <label class="label">Password</label>
+                                    <div class="control has-icons-left">
+                                        <input type="password" class="input">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <button class="button is-primary is-fullwidth my-4">Login</button>
+
+                                <p class="text my-1">
+                                    Don't have an account yet? <a href="">Register</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p class="text"> Password</p>
-                <div class="field">
-                    <p class="control has-icons-left">
-                        <input class="input is-rounded" type="password" placeholder="Password">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </p>
-                </div>
-                <div class="btn">
-                    <a href="./index.html">
-                        <input type="button" class="button is-rounded" style="background-color: #FFE9A0;" value="Back to home">
-                        <!-- <button class="button is-rounded" style="background-color: #FFE9A0;">Back to home</button> -->
-                    </a>
-                    <button class="button is-rounded has-text-white" style="background-color: #A27B5C;">Login</button>
-                </div>
-                <div >
-                    <p class="text-re">Don't have a account <a href="./register.html">Register</a></p>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
-
-    <!-- other script -->
-    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
-
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!-- other script -->
+<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+
 
 </html>
