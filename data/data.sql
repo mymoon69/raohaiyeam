@@ -94,15 +94,15 @@ INSERT INTO `phone`(`phone_id`, `brand`, `model`, `rent`, `deposit`, `amount`) V
 (12,'IPhone','IPhone 14 Pro Max.png',1500,500, '10');
 
 INSERT INTO `images` (`images_id`, `phone_id`, `file_path`) VALUES
-(1, 1, 'static/img/Samsung Galaxy S20 Ultra.png'),
-(2, 2, 'static/img/Samsung Galaxy S21 Ultra.png'),
-(3, 3, 'static/img/Samsung Galaxy S22 Ultra.png'),
-(4, 4, 'static/img/Samsung Galaxy S23 Ultra.png'),
-(5, 5, 'static/img/HUAWEI P40 Pro+.png'),
-(6, 6, 'static/img/HUAWEI P50 Pro.png'),
-(7, 7, 'static/img/HUAWEI Mate40 Pro.png'),
-(8, 8, 'static/img/HUAWEI Mate50 Pro.png'),
-(9, 9, 'static/img/IPhone 13 Pro.png'),
-(10, 10, 'static/img/IPhone 13 Pro Max.png'),
-(11, 11, 'static/img/IPhone 14 Pro.png'),
-(12, 12, 'static/img/IPhone 134 ProMax.png');
+(1,1,'img/SamsungGalaxyS20Ultra.png'),
+(2,2,'img/SamsungGalaxyS21Ultra.png'),
+(3,3,'img/SamsungGalaxyS22Ultra.png'),
+(4,4,'img/SamsungGalaxyS23Ultra.png'),
+(5,5,'img/HUAWEIP40Pro+.png'),
+(6,6,'img/HUAWEIP50Pro.png'),
+(7,7,'img/HUAWEIMate40Pro.png'),
+(8,8,'img/HUAWEIMate50Pro.png'),
+(9,9,'img/IPhone13Pro.png'),
+(10,10,'img/IPhone13ProMax.png'),
+(11,11,'img/IPhone14Pro.png'),
+(12,12,'img/IPhone134ProMax.png');

@@ -1,4 +1,5 @@
 <template>
+<!-- รูป -->
   <div>
     <div class="head">
       <p>ยินดีต้อนรับ</p>
@@ -38,11 +39,10 @@
                   <p class="subtitle is-6">{{phone.brand}}</p>
                   <p class="subtitle is-6 has-text-danger">{{ phone.rent}} ฿</p>
                 </div>
-                <!-- <div class="namePhone">
-                  <button class="button is-warning">iphone 11</button>
-                </div> -->
               </div>
-              <button class="button is-success is-fullwidth is-outlined">จองเลย</button>
+              <router-link class="button is-success is-fullwidth is-outlined" :to="`/phone/detail/${phone.phone_id}`">
+                จองเลย
+              </router-link>
             </div>
           </div>
         </div>
@@ -60,6 +60,7 @@ export default {
     return {
       search: "",
       phones: [],
+      // images: []
     };
   },
   mounted(){
@@ -76,7 +77,6 @@ export default {
         .then((response) => {
           this.phones = response.data;
           console.log(response.data)
-          console.log(response.data.phone)
         })
         .catch((err) => {
           console.log(err);
@@ -84,7 +84,7 @@ export default {
     },
     image(file_path){
       if (file_path) {
-        return "http://localhost:3001" + file_path;
+        return "http://localhost:3001/" + file_path;
       } else {
         return "https://bulma.io/images/placeholders/640x360.png";
       }

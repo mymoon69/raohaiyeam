@@ -3,28 +3,33 @@ const pool = require("../config");
 
 router = express.Router();
 
-router.get("/", async function(req, res, next){
-  const [data] = await pool.query('select * from phone')
+router.get("/", async function (req, res, next) {
+  //req.query.search รับมาจากช่อง search
+  // const search = req.query.search || ''
+  //
+  // const [phone] = await pool.query('select a.*, b.file_path from phone as a left join (select * from images) as b on a.phone_id = b.phone_id')
+
+  const [phone] = await pool.query('select phone.*, images.file_path from phone join images  on phone.phone_id = images.phone_id')
   //returnให้จบfunc send รอบเดียว
-  return res.send(data)
+  return res.send(phone);
 })
 
 // router.get("/", async function (req, res, next) {
-  
 
-    // try{
-    //     // ค้นหาใน field title ของตาราง phone โดยใช้ SELECT * FROM phone WHERE model LIKE ? '%คำค้นหา%'
-    //     const [rows, fields] = await pool.query("SELECT * FROM phone WHERE model LIKE ?", [
-    //       `%${req.query.search}%`,
-    //     ]);
-    
-    //     // return json ของรายการ phone
-    //     return res.json(rows);
-    
-    //   } catch (err) {
-    //       console.log(err)
-    //       return next(err);
-    //   }
+
+// try{
+//     // ค้นหาใน field title ของตาราง phone โดยใช้ SELECT * FROM phone WHERE model LIKE ? '%คำค้นหา%'
+//     const [rows, fields] = await pool.query("SELECT * FROM phone WHERE model LIKE ?", [
+//       `%${req.query.search}%`,
+//     ]);
+
+//     // return json ของรายการ phone
+//     return res.json(rows);
+
+//   } catch (err) {
+//       console.log(err)
+//       return next(err);
+//   }
 //   try {
 //     const search = req.query.search || ''
 //     let sql = 'SELECT * FROM phone;'

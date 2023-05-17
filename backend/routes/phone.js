@@ -9,6 +9,22 @@ router = express.Router();
 //     return res.send(data)
 // })
 
+// Require multer for file upload
+const multer = require("multer");
+// SET STORAGE
+var storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, "./static/uploads");
+  },
+  filename: function (req, file, callback) {
+    callback(
+      null,
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
+const upload = multer({ storage: storage });
+
 router.get("/phone/:id", async function (req, res, next) {
     try {
         const [phone] = await pool.query('select * from phone where phone_id=?', [req.params.id])
@@ -22,7 +38,10 @@ router.get("/phone/:id", async function (req, res, next) {
         res.send(err)
     }
 
-})
+}),
+
+router.delete("/phone/:id", async function (req, res, next) {
+});
 
 
 router.put("/")
