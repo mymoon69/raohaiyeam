@@ -18,10 +18,10 @@ CREATE TABLE token (
 ) ;
 
 CREATE TABLE logIn (
-  login_id int(10) unsigned NOT NULL AUTO_INCREMENT,
-  user_id int(10) unsigned NOT NULL,
-  username varchar(25) NOT NULL,
-  password varchar(25) NOT NULL,
+  `login_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `username` varchar(25) NOT NULL,
+  `password` varchar(255) NOT NULL,
   role enum('user', 'admin') NOT NULL DEFAULT 'user',
   PRIMARY KEY (login_id),
   FOREIGN KEY (user_id) REFERENCES user(user_id) ON DELETE CASCADE
