@@ -15,7 +15,7 @@
           />
         </div>
         <div class="column is-1">
-          <button class="button is-warning">Search</button>
+          <!-- <button @click="getPhones" class="button is-warning">Search</button> -->
         </div>
       </div>
       <div class="columns is-multiline">
@@ -25,10 +25,10 @@
           <div class="card" style="width: 300px">
             <div class="card-image" style="padding-top: 5%">
               <figure class="image is-1by1">
-                <!-- <img
-                  :src="imagePath(phone.file_path)"
+                <img
+                  :src="image(phone.file_path)"
                   alt="Placeholder image"
-                /> -->
+                />
               </figure>
             </div>
             <div class="card-content">
@@ -36,7 +36,7 @@
                 <div class="media-content">
                   <p class="title is-4">{{phone.model}}</p>
                   <p class="subtitle is-6">{{phone.brand}}</p>
-                  <p class="subtitle is-6 has-text-danger">1500 ฿</p>
+                  <p class="subtitle is-6 has-text-danger">{{ phone.rent}} ฿</p>
                 </div>
                 <!-- <div class="namePhone">
                   <button class="button is-warning">iphone 11</button>
@@ -68,13 +68,15 @@ export default {
   methods:{
     getPhone(){
       axios//เรียกหลังบ้าน
-        .get("/phone", {
+        .get("/", {
           params: {
             search: this.search,
           },
         })
         .then((response) => {
           this.phones = response.data;
+          console.log(response.data)
+          console.log(response.data.phone)
         })
         .catch((err) => {
           console.log(err);
