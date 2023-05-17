@@ -74,8 +74,17 @@ const CheckUsername = async (value) => {
     return value
 }
 
+// check ว่ามี ID_card นี้อยู่แล้วรึเปล่า
+const CheckId_card = async (value) => {
+    const [ID_card] = await pool.query('select ID_card from user where ID_card = ?', [value])
+    if (ID_card.length > 0) {
+        throw new Joi.ValidationError('You are already a member.')
+    }
+    return value
+}
+
 // check  ว่า password ตรงกับที่กำหนดไหม
-const CheckPassword = async (value) => {
+const CheckPassword = (value) => {
     // check ความยาวว่าเกิน 5 ไหม
     if (value.length < 5) {
         throw new Joi.ValidationError('Password must be not less than 8 characters.')
@@ -95,15 +104,15 @@ const RegisterSchema = Joi.object({
     email: Joi.string().required().email(),
     first_name: Joi.string().required().max(100),
     last_name: Joi.string().required().max(100),
-    ID_card: Joi.string().required().pattern(/[0-9]{13}/),
-    phone: Joi.string().required().pattern(/0[0-9]{9}/)
+    ID_card: Joi.string().required().pattern(/[0-9]{13}/).max(13).external(CheckId_card),
+    phone: Joi.string().required().pattern(/0[0-9]{9}/).max(10)
 
 })
 
 router.post('/user/register', async (req, res, next) => {
     // check สิ่งที่เอาเข้ามาด้วย Joi
     try {
-        await RegisterSchema.validateAsync(req.body, {abortEarly: false})
+        await RegisterSchema.validateAsync(req.body, { abortEarly: false })
     } catch (err) {
         return res.status(400).send(err)
     }
@@ -121,19 +130,32 @@ router.post('/user/register', async (req, res, next) => {
 
     // insert ข้อมูล 
     try {
+        console.log('say hi')
         // insert ข้อมูลลงตาราง user
-        await conn.query('insert into user(first_name, last_name, ID_card, phone, email) values (?, ?, ?, ?, ?)', 
-        [first_name, last_name, ID_card, phone, email])
+        // const [data] = await conn.query('insert into user(first_name, last_name, ID_card, phone, email) values (?, ?, ?, ?, ?)', 
+        // [first_name, last_name, ID_card, phone, email])
 
-        const [user] = await conn.query('select user_id from user where ID_card = ?', [ID_card])
-        const id_user = user[0].ID_card
+        // console.log(data.insertId)
+        // const user_id = data.insertId;
 
         // insert ข้อมูลลงใน login 
-        await conn.query('insert into login(user_id, username, password) values(?, ?, ?)', [id_user, username, password])
+        // await conn.query('insert into login(user_id, username, password) values(?, ?, ?)', [user_id, username, password])
+
+        let results = await conn.query(
+            'INSERT INTO user ( first_name, last_name, phone, email, ID_card) VALUES (?, ?, ?, ?, ?)', [first_name, last_name, phone, email, ID_card]
+        )
+
+        const cusId = results[0].insertId;
+        console.log(cusId)
+
+        await conn.query(
+            'INSERT INTO login (cus_id, username, password) VALUES (?, ?, ?)', [cusId, username, password]
+        )
 
         conn.commit()
-        res.status(200).send()
+        return res.status(200).send('You are already our member!')
     } catch (err) {
+        res.send('rollback')
         conn.rollback()
         res.status(400).json(err.toString());
     } finally {
